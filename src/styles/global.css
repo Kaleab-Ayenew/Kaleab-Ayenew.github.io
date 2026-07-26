@@ -90,6 +90,10 @@
     @apply text-primary underline underline-offset-4 decoration-primary/30 hover:decoration-primary transition-colors;
   }
 
+  .prose-article img {
+    @apply my-8 w-full border border-border;
+  }
+
   .prose-article hr {
     @apply my-10 border-border;
   }

@@ -22,8 +22,16 @@ npm run dev
 
 Content is stored as Markdown in:
 
-- `src/content/writings/`
+- `src/content/writings/` (each post in its own folder, e.g. `my-post/index.md`)
 - `src/content/works/`
+
+### Adding images
+
+1. In Keystatic, use the image button in the content editor (or paste an image).
+2. Images are saved next to the post in that post's folder (e.g. `src/content/works/my-post/photo.jpg`).
+3. Restart or refresh the dev server if a new image doesn't show immediately.
+
+If you edit Markdown by hand, place image files in the same folder as `index.md` and reference them with `![](filename.jpg)`.
 
 ## Build
 

@@ -33,9 +33,9 @@ export const CONTACT_LINKS = [
     icon: 'x' as const,
   },
   {
-    href: 'https://t.me/kal_pilgrim',
+    href: 'https://t.me/kal_ay',
     label: 'Telegram',
-    description: '@kal_pilgrim',
+    description: '@kal_ay',
     icon: 'telegram' as const,
   },
 ];
