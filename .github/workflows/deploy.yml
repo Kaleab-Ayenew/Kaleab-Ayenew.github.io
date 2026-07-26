@@ -27,7 +27,7 @@ jobs:
           node-version: 20
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
-          SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+          SITE_URL: https://${{ github.repository_owner }}.github.io
 
   deploy:
     needs: build

@@ -6,7 +6,9 @@ import mdx from '@astrojs/mdx';
 import keystatic from '@keystatic/astro';
 
 const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1];
-const base = repoName ? `/${repoName}/` : '/';
+const owner = process.env.GITHUB_REPOSITORY?.split('/')[0];
+const isUserSite = repoName?.endsWith('.github.io');
+const base = isUserSite || !repoName ? '/' : `/${repoName}/`;
 
 const integrations = [tailwind(), react(), markdoc(), mdx()];
 
@@ -15,7 +17,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 export default defineConfig({
-  site: process.env.SITE_URL ?? 'https://example.github.io',
+  site: process.env.SITE_URL ?? (owner ? `https://${owner.toLowerCase()}.github.io` : 'https://kaleab-ayenew.github.io'),
   base,
   output: 'static',
   integrations,
