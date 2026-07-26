@@ -34,22 +34,7 @@ npm run preview
 
 ## GitHub Pages deployment
 
-The site deploys automatically on push to `main` via GitHub Actions.
-
-### Base path
-
-For project pages (`username.github.io/repo-name/`), the `base` path is set automatically from `GITHUB_REPOSITORY` during CI builds.
-
-For a user/organization site (`username.github.io`), set `base: '/'` in `astro.config.mjs`.
-
-For a custom domain, set `site` to your domain and `base: '/'`.
-
-### Enable GitHub Pages
-
-1. Push this repo to GitHub
-2. Go to **Settings → Pages**
-3. Set source to **GitHub Actions**
-4. Push to `main` to trigger the first deploy
+The site deploys to **https://kaleab-ayenew.github.io/** from the `Kaleab-Ayenew.github.io` repository on push to `main`.
 
 ## Customize
 
