@@ -1,0 +1,24 @@
+---
+import { formatArchiveDate } from '../utils/archive';
+
+interface Props {
+  title: string;
+  href: string;
+  publishDate: Date;
+}
+
+const { title, href, publishDate } = Astro.props;
+---
+
+<a
+  href={href}
+  class="group flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 p-3 -mx-3 hover:bg-surface-aged-paper transition-colors duration-200"
+>
+  <span class="font-serif text-xl sm:text-2xl text-text-main group-hover:text-primary transition-colors font-medium whitespace-nowrap">
+    {title}
+  </span>
+  <span class="hidden sm:block flex-1 dotted-leader relative top-[-6px]"></span>
+  <span class="font-mono text-xs sm:text-sm text-text-muted whitespace-nowrap mt-1 sm:mt-0">
+    {formatArchiveDate(publishDate)}
+  </span>
+</a>

@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { RESUME_EMBED_URL, RESUME_URL } from '../site';
+---
+
+<BaseLayout title="Resume — Pilgrim's Journal" description="Kaleab Ayenew's resume.">
+  <Header slot="header" active="resume" />
+  <div class="px-6 lg:px-40 flex flex-1 justify-center py-12">
+    <div class="layout-content-container flex flex-col max-w-container flex-1 w-full">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+        <div class="flex flex-col gap-4">
+          <h1 class="text-text-main text-5xl md:text-6xl font-serif italic font-bold leading-tight tracking-tight">
+            Resume
+          </h1>
+          <p class="text-text-muted text-lg font-mono leading-relaxed max-w-xl">
+            Kaleab Ayenew
+          </p>
+        </div>
+        <a
+          href={RESUME_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-mono text-sm text-text-main hover:text-primary underline underline-offset-4 decoration-primary/30 hover:decoration-primary transition-colors shrink-0"
+        >
+          Open in Google Docs →
+        </a>
+      </div>
+      <div class="w-full border border-border bg-surface-aged-paper">
+        <iframe
+          src={RESUME_EMBED_URL}
+          title="Kaleab Ayenew Resume"
+          class="w-full min-h-[80vh] bg-white"
+          loading="lazy"
+          allow="fullscreen"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+  <Footer slot="footer" />
+</BaseLayout>

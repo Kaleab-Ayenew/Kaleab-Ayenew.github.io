@@ -1,0 +1,45 @@
+---
+interface Props {
+  active?: 'home' | 'writings' | 'works' | 'resume' | 'signal';
+}
+
+const { active } = Astro.props;
+
+const navItems = [
+  { href: '/writings', label: 'Writings', key: 'writings' as const },
+  { href: '/works', label: 'Works', key: 'works' as const },
+  { href: '/resume', label: 'Resume', key: 'resume' as const },
+  { href: '/signal', label: 'Signal', key: 'signal' as const },
+];
+---
+
+<header class="flex items-center justify-between whitespace-nowrap border-b border-border px-6 lg:px-40 py-4 bg-background-light/95 backdrop-blur-sm sticky top-0 z-40">
+  <a href="/" class="flex items-center gap-4 text-text-main group">
+    <div class="size-6 text-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+        <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3C21 5 17 8 17 8Z"/>
+      </svg>
+    </div>
+    <h2 class="text-text-main text-lg font-serif italic font-bold leading-tight tracking-tight group-hover:text-primary transition-colors">
+      Pilgrim's Journal
+    </h2>
+  </a>
+  <nav class="hidden md:flex flex-1 justify-end gap-9">
+    {navItems.map(({ href, label, key }) => (
+      <a
+        href={href}
+        class:list={[
+          'text-sm font-mono hover:text-primary hover:underline underline-offset-4 transition-colors',
+          active === key ? 'text-primary font-bold underline' : 'text-text-main',
+        ]}
+      >
+        {label}
+      </a>
+    ))}
+  </nav>
+  <button class="md:hidden text-text-main" aria-label="Open menu">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+      <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+    </svg>
+  </button>
+</header>

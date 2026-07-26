@@ -1,0 +1,41 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { formatArticleDate } from '../utils/archive';
+
+interface Props {
+  title: string;
+  description?: string;
+  publishDate: Date;
+  volume?: string;
+}
+
+const { title, description, publishDate, volume } = Astro.props;
+const pageTitle = `${title} — Pilgrim's Journal`;
+---
+
+<BaseLayout title={pageTitle} description={description}>
+  <Header slot="header" />
+  <div class="px-6 lg:px-40 flex flex-1 justify-center py-12">
+    <article class="layout-content-container flex flex-col max-w-container flex-1 w-full">
+      <header class="mb-12 border-b border-border pb-8">
+        <p class="font-mono text-label-xs text-text-muted uppercase tracking-widest mb-4">
+          {volume ? `${volume} / ` : ''}{formatArticleDate(publishDate)}
+        </p>
+        <h1 class="font-serif text-headline-md md:text-headline-lg italic font-bold text-text-main leading-tight tracking-tight mb-4">
+          {title}
+        </h1>
+        {description && (
+          <p class="font-mono text-body-md text-text-muted leading-relaxed max-w-xl">
+            {description}
+          </p>
+        )}
+      </header>
+      <div class="prose-article drop-cap">
+        <slot />
+      </div>
+    </article>
+  </div>
+  <Footer slot="footer" />
+</BaseLayout>

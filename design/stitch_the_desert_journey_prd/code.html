@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Archives - The Desert Journey</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec3413",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221310",
+                        "text-main": "#1b100d",
+                        "text-muted": "#9a574c",
+                        "surface": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Cormorant Garamond", "serif"],
+                        "mono": ["Space Mono", "monospace"],
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Dotted Leader implementation */
+        .dotted-leader {
+            background-image: radial-gradient(circle, #D7CCC8 1px, transparent 1px);
+            background-size: 6px 1px; /* spacing of dots */
+            background-position: bottom;
+            background-repeat: repeat-x;
+            height: 1.5em; /* alignment fix */
+        }
+        
+        /* Grain texture overlay */
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main font-display antialiased selection:bg-primary/20 selection:text-primary">
+<div class="grain-overlay"></div>
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f3e9e7] px-6 lg:px-40 py-4 bg-background-light/95 backdrop-blur-sm sticky top-0 z-40">
+<div class="flex items-center gap-4 text-[#1b100d]">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined text-2xl">eco</span>
+</div>
+<h2 class="text-text-main text-lg font-bold leading-tight tracking-[-0.015em] font-serif italic">The Desert Journey</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8">
+<nav class="flex items-center gap-9">
+<a class="text-text-main text-sm font-mono hover:text-primary hover:underline underline-offset-4 transition-colors" href="#">Work</a>
+<a class="text-primary text-sm font-mono font-bold hover:text-primary hover:underline underline-offset-4 transition-colors" href="#">Thoughts</a>
+<a class="text-text-main text-sm font-mono hover:text-primary hover:underline underline-offset-4 transition-colors" href="#">Signal</a>
+</nav>
+</div>
+<!-- Mobile Menu Icon -->
+<div class="md:hidden text-text-main">
+<span class="material-symbols-outlined">menu</span>
+</div>
+</header>
+<main class="layout-container flex h-full grow flex-col">
+<div class="px-6 lg:px-40 flex flex-1 justify-center py-12">
+<div class="layout-content-container flex flex-col max-w-[800px] flex-1 w-full">
+<!-- Page Header -->
+<div class="flex flex-col gap-4 mb-16 animate-fade-in-up">
+<h1 class="text-text-main text-5xl md:text-6xl font-serif italic font-bold leading-tight tracking-[-0.033em]">
+                            The Archives
+                        </h1>
+<p class="text-text-muted text-lg font-mono leading-relaxed max-w-xl">
+                            A linear collection of technical writings, field notes, and musings from the journey.
+                        </p>
+</div>
+<!-- Year Group 2024 -->
+<section class="mb-16">
+<div class="sticky top-[73px] z-10 bg-background-light/95 backdrop-blur-sm py-4 border-b border-[#f3e9e7] mb-6 w-full flex items-center justify-between">
+<span class="font-mono text-sm font-bold text-primary tracking-widest">2024</span>
+<span class="font-mono text-xs text-text-muted hidden sm:block">Volume IV</span>
+</div>
+<div class="flex flex-col gap-1">
+<!-- Article Item -->
+<a class="group flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 p-3 -mx-3 rounded hover:bg-[#EBE5D9] transition-colors duration-200" href="#">
+<span class="font-serif text-xl sm:text-2xl text-text-main group-hover:text-primary transition-colors font-medium whitespace-nowrap">
+                                    Refactoring the Monolith
+                                </span>
+<span class="hidden sm:block flex-1 dotted-leader relative top-[-6px]"></span>
+<span class="font-mono text-xs sm:text-sm text-text-muted whitespace-nowrap mt-1 sm:mt-0">
+                                    OCT 12
+                                </span>
+</a>
+<!-- Article Item -->
+<a class="group flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 p-3 -mx-3 rounded hover:bg-[#EBE5D9] transition-colors duration-200" href="#">
+<span class="font-serif text-xl sm:text-2xl text-text-main group-hover:text-primary transition-colors font-medium whitespace-nowrap">
+                                    The Philosophy of State
+                                </span>
+<span class="hidden sm:block flex-1 dotted-leader relative top-[-6px]"></span>
+<span class="font-mono text-xs sm:text-sm text-text-muted whitespace-nowrap mt-1 sm:mt-0">
+                                    AUG 04
+                                </span>
+</a>
+<!-- Article Item -->
+<a class="group flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 p-3 -mx-3 rounded hover:bg-[#EBE5D9] transition-colors duration-200" href="#">
+<span class="font-serif text-xl sm:text-2xl text-text-main group-hover:text-primary transition-colors font-medium whitespace-nowrap">
+                                    On Digital Gardening
+                                </span>
+<span class="hidden sm:block flex-1 dotted-leader relative top-[-6px]"></span>
+<span class="font-mono text-xs sm:text-sm text-text-muted whitespace-nowrap mt-1 sm:mt-0">
+                                    JAN 15
+                                </span>
+</a>
+</div>
+</section>
+<!-- Year Group 2023 -->
+<section class="mb-16">
+<div class="sticky top-[73px] z-10 bg-background-light/95 backdrop-blur-sm py-4 border-b border-[#f3e9e7] mb-6 w-full flex items-center justify-between">
+<span class="font-mono text-sm font-bold text-primary tracking-widest">2023</span>
+<span class="font-mono text-xs text-text-muted hidden sm:block">Volume III</span>
+</div>
+<div class="flex flex-col gap-1">
+<!-- Article Item -->
+<a class="group flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 p-3 -mx-3 rounded hover:bg-[#EBE5D9] transition-colors duration-200" href="#">
+<span class="font-serif text-xl sm:text-2xl text-text-main group-hover:text-primary transition-colors font-medium whitespace-nowrap">
+                                    Understanding React Server Components
+                                </span>
+<span class="hidden sm:block flex-1 dotted-leader relative top-[-6px]"></span>
+<span class="font-mono text-xs sm:text-sm text-text-muted whitespace-nowrap mt-1 sm:mt-0">
+                                    DEC 22
+                                </span>
+</a>
+<!-- Article Item -->
+<a class="group flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 p-3 -mx-3 rounded hover:bg-[#EBE5D9] transition-colors duration-200" href="#">
+<span class="font-serif text-xl sm:text-2xl text-text-main group-hover:text-primary transition-colors font-medium whitespace-nowrap">
+                                    A Guide to Typography
+                                </span>
+<span class="hidden sm:block flex-1 dotted-leader relative top-[-6px]"></span>
+<span class="font-mono text-xs sm:text-sm text-text-muted whitespace-nowrap mt-1 sm:mt-0">
+                                    NOV 10
+                                </span>
+</a>
+<!-- Article Item -->
+<a class="group flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 p-3 -mx-3 rounded hover:bg-[#EBE5D9] transition-colors duration-200" href="#">
+<span class="font-serif text-xl sm:text-2xl text-text-main group-hover:text-primary transition-colors font-medium whitespace-nowrap">
+                                    Building for the Web
+                                </span>
+<span class="hidden sm:block flex-1 dotted-leader relative top-[-6px]"></span>
+<span class="font-mono text-xs sm:text-sm text-text-muted whitespace-nowrap mt-1 sm:mt-0">
+                                    SEP 28
+                                </span>
+</a>
+<!-- Article Item -->
+<a class="group flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 p-3 -mx-3 rounded hover:bg-[#EBE5D9] transition-colors duration-200" href="#">
+<span class="font-serif text-xl sm:text-2xl text-text-main group-hover:text-primary transition-colors font-medium whitespace-nowrap">
+                                    Minimalism in Code
+                                </span>
+<span class="hidden sm:block flex-1 dotted-leader relative top-[-6px]"></span>
+<span class="font-mono text-xs sm:text-sm text-text-muted whitespace-nowrap mt-1 sm:mt-0">
+                                    JUN 14
+                                </span>
+</a>
+</div>
+</section>
+<!-- Year Group 2022 -->
+<section class="mb-16">
+<div class="sticky top-[73px] z-10 bg-background-light/95 backdrop-blur-sm py-4 border-b border-[#f3e9e7] mb-6 w-full flex items-center justify-between">
+<span class="font-mono text-sm font-bold text-primary tracking-widest">2022</span>
+<span class="font-mono text-xs text-text-muted hidden sm:block">Volume II</span>
+</div>
+<div class="flex flex-col gap-1">
+<!-- Article Item -->
+<a class="group flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 p-3 -mx-3 rounded hover:bg-[#EBE5D9] transition-colors duration-200" href="#">
+<span class="font-serif text-xl sm:text-2xl text-text-main group-hover:text-primary transition-colors font-medium whitespace-nowrap">
+                                    CSS Grid Layouts
+                                </span>
+<span class="hidden sm:block flex-1 dotted-leader relative top-[-6px]"></span>
+<span class="font-mono text-xs sm:text-sm text-text-muted whitespace-nowrap mt-1 sm:mt-0">
+                                    FEB 01
+                                </span>
+</a>
+<!-- Article Item -->
+<a class="group flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 p-3 -mx-3 rounded hover:bg-[#EBE5D9] transition-colors duration-200" href="#">
+<span class="font-serif text-xl sm:text-2xl text-text-main group-hover:text-primary transition-colors font-medium whitespace-nowrap">
+                                    Legacy Systems
+                                </span>
+<span class="hidden sm:block flex-1 dotted-leader relative top-[-6px]"></span>
+<span class="font-mono text-xs sm:text-sm text-text-muted whitespace-nowrap mt-1 sm:mt-0">
+                                    JAN 10
+                                </span>
+</a>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- The Signal (Footer) -->
+<footer class="border-t border-[#f3e9e7] bg-[#fcf9f8] px-6 lg:px-40 py-12 mt-auto">
+<div class="layout-content-container max-w-[800px] mx-auto w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<div class="flex flex-col gap-2">
+<h3 class="font-serif text-2xl font-bold text-text-main italic">Send a signal.</h3>
+<p class="font-mono text-sm text-text-muted">Open to collaborations and technical discourse.</p>
+</div>
+<div class="flex items-center gap-6">
+<a class="group flex items-center gap-2 text-text-main hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">mail</span>
+<span class="font-mono text-sm underline decoration-primary/30 decoration-1 underline-offset-4 group-hover:decoration-primary">Email</span>
+</a>
+<a class="group flex items-center gap-2 text-text-main hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">code</span>
+<span class="font-mono text-sm underline decoration-primary/30 decoration-1 underline-offset-4 group-hover:decoration-primary">GitHub</span>
+</a>
+<a class="group flex items-center gap-2 text-text-main hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">alternate_email</span>
+<span class="font-mono text-sm underline decoration-primary/30 decoration-1 underline-offset-4 group-hover:decoration-primary">Twitter</span>
+</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ArchiveList from '../../components/ArchiveList.astro';
+import { getCollection } from 'astro:content';
+import { groupByYear } from '../../utils/archive';
+
+const isDev = import.meta.env.DEV;
+
+const entries = (await getCollection('works'))
+  .filter((entry) => isDev || !entry.data.draft)
+  .map((entry) => ({
+    id: entry.id,
+    title: entry.data.title,
+    publishDate: entry.data.publishDate,
+    volume: entry.data.volume,
+  }));
+
+const groups = groupByYear(entries);
+---
+
+<BaseLayout
+  title="Works — Pilgrim's Journal"
+  description="Engineered artifacts and projects from the journey."
+>
+  <Header slot="header" active="works" />
+  <div class="px-6 lg:px-40 flex flex-1 justify-center py-12">
+    <div class="layout-content-container flex flex-col max-w-container flex-1 w-full">
+      <div class="flex flex-col gap-4 mb-16">
+        <h1 class="text-text-main text-5xl md:text-6xl font-serif italic font-bold leading-tight tracking-tight">
+          Works
+        </h1>
+        <p class="text-text-muted text-lg font-mono leading-relaxed max-w-xl">
+          Engineered artifacts, structured thought, and projects from the arid frontiers.
+        </p>
+      </div>
+      {groups.length > 0 ? (
+        <ArchiveList groups={groups} basePath="/works" />
+      ) : (
+        <p class="font-mono text-text-muted">No works yet.</p>
+      )}
+    </div>
+  </div>
+  <Footer slot="footer" />
+</BaseLayout>

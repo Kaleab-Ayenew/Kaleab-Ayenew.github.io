@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../site';
+---
+
+<BaseLayout title={SITE_TITLE}>
+  <Header slot="header" active="home" />
+  <div class="flex flex-1 items-center justify-center px-6 py-24">
+    <div class="max-w-container w-full text-center flex flex-col items-center gap-8">
+      <h1 class="font-serif text-display-hero md:text-[5rem] italic font-bold text-text-main leading-tight tracking-tight">
+        {SITE_TITLE}
+      </h1>
+      <p class="font-mono text-sm md:text-base text-primary tracking-wide max-w-md">
+        {SITE_DESCRIPTION}
+      </p>
+      <a
+        href="/writings"
+        class="font-mono text-sm text-text-main hover:text-primary underline underline-offset-4 decoration-primary/30 hover:decoration-primary transition-colors mt-4"
+      >
+        Enter the archives →
+      </a>
+    </div>
+  </div>
+  <Footer slot="footer" />
+</BaseLayout>

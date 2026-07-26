@@ -1,0 +1,31 @@
+---
+import ArchiveItem from './ArchiveItem.astro';
+import type { YearGroup } from '../utils/archive';
+
+interface Props {
+  groups: YearGroup[];
+  basePath: string;
+}
+
+const { groups, basePath } = Astro.props;
+---
+
+{groups.map((group) => (
+  <section class="mb-16">
+    <div class="sticky top-[73px] z-10 bg-background-light/95 backdrop-blur-sm py-4 border-b border-border mb-6 w-full flex items-center justify-between">
+      <span class="font-mono text-sm font-bold text-primary tracking-widest">{group.year}</span>
+      {group.volume && (
+        <span class="font-mono text-xs text-text-muted hidden sm:block">{group.volume}</span>
+      )}
+    </div>
+    <div class="flex flex-col gap-1">
+      {group.entries.map((entry) => (
+        <ArchiveItem
+          title={entry.title}
+          href={`${basePath}/${entry.id}`}
+          publishDate={entry.publishDate}
+        />
+      ))}
+    </div>
+  </section>
+))}

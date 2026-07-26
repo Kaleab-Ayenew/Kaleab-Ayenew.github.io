@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { CONTACT_LINKS } from '../site';
+---
+
+<BaseLayout
+  title="Signal — Pilgrim's Journal"
+  description="Open to conversations."
+>
+  <Header slot="header" active="signal" />
+  <div class="px-6 lg:px-40 flex flex-1 justify-center py-12">
+    <div class="layout-content-container flex flex-col max-w-container flex-1 w-full">
+      <div class="flex flex-col gap-4 mb-16">
+        <h1 class="text-text-main text-5xl md:text-6xl font-serif italic font-bold leading-tight tracking-tight">
+          Send a signal.
+        </h1>
+        <p class="text-text-muted text-lg font-mono leading-relaxed max-w-xl">
+          Open to conversations
+        </p>
+      </div>
+      <div class="flex flex-col gap-8">
+        {CONTACT_LINKS.map(({ href, label, description }) => (
+          <a
+            href={href}
+            class="group flex flex-col gap-1 p-4 -mx-4 border-b border-border hover:bg-surface-aged-paper transition-colors"
+            target={href.startsWith('http') ? '_blank' : undefined}
+            rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+          >
+            <span class="font-mono text-label-xs text-primary uppercase tracking-widest">{label}</span>
+            <span class="font-serif text-2xl italic text-text-main group-hover:text-primary transition-colors">
+              {description}
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+  <Footer slot="footer" />
+</BaseLayout>
