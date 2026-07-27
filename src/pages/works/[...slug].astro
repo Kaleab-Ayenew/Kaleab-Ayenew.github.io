@@ -23,6 +23,8 @@ const { Content } = await render(entry);
   description={entry.data.description}
   publishDate={entry.data.publishDate}
   volume={entry.data.volume}
+  collection="works"
+  slug={entry.id}
 >
   <Content />
 </ArticleLayout>

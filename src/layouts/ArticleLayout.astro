@@ -9,9 +9,11 @@ interface Props {
   description?: string;
   publishDate: Date;
   volume?: string;
+  collection: 'writings' | 'works';
+  slug: string;
 }
 
-const { title, description, publishDate, volume } = Astro.props;
+const { title, description, publishDate, volume, collection, slug } = Astro.props;
 const pageTitle = `${title} — Pilgrim's Journal`;
 ---
 
@@ -38,4 +40,28 @@ const pageTitle = `${title} — Pilgrim's Journal`;
     </article>
   </div>
   <Footer slot="footer" />
+  <script is:inline define:vars={{ collection, slug, title }}>
+    function trackArticleView() {
+      if (!window.posthog) return;
+      window.posthog.register({ collection, article_slug: slug });
+      window.posthog.capture('article_viewed', { collection, slug, title });
+    }
+
+    if (window.posthog) {
+      trackArticleView();
+    } else {
+      document.addEventListener('DOMContentLoaded', function () {
+        var attempts = 0;
+        var interval = setInterval(function () {
+          attempts += 1;
+          if (window.posthog) {
+            clearInterval(interval);
+            trackArticleView();
+          } else if (attempts >= 20) {
+            clearInterval(interval);
+          }
+        }, 100);
+      });
+    }
+  </script>
 </BaseLayout>

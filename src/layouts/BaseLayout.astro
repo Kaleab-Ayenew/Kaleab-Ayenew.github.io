@@ -11,6 +11,7 @@ import '@fontsource/inter/500.css';
 import '@fontsource/inter/600.css';
 import '../styles/global.css';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../site';
+import PostHog from '../components/posthog.astro';
 
 interface Props {
   title?: string;
@@ -28,6 +29,7 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+    <PostHog />
   </head>
   <body class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
     <div class="grain-overlay" aria-hidden="true"></div>
