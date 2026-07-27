@@ -1,5 +1,5 @@
 ---
-title: What building my own container runtime taught me about software architecture
+title: What Building My Own Container Runtime Taught Me About Software Architecture
 publishDate: 2026-07-28
 description: Software is just a collection of sub systems communicating through APIs. 
 draft: false
