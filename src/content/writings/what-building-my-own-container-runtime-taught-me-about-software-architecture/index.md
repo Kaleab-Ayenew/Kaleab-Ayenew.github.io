@@ -4,7 +4,7 @@ publishDate: 2026-07-28
 description: Software is just a collection of sub systems communicating through APIs. 
 draft: false
 ---
-![](/src/content/writings/what-building-my-own-container-runtime-taught-me-about-software-architecture/puncker.gif)
+![](/writings/puncker.gif)
 
 I recently built a low [level container runtime](https://github.com/Kaleab-Ayenew/puncker-rt) from scratch(by hand!).
 
